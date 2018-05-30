@@ -6,4 +6,7 @@ module.exports = function(app)
 	app.get('/about',function(req,res){
 		res.render('about.html');
 	});
+	app.get('/signin',function(req,res){
+		res.render('signin.html');
+	});
 }
