@@ -12,14 +12,14 @@ var connection = mysql.createConnection({
 
 var router = express.Router();
 
-router.get('/login/:useremail/:userpw', (req, res) => {
-    var user_email = req.params.useremail;
+router.get('/login/:username/:userpw', (req, res) => {
+    var user_name = req.params.username;
     var user_pw = req.params.userpw;
     var sess = req.session;
     console.log("Login request");
-    console.log('select * from Users where email = "' + user_email + '";');
+    console.log('select * from Users where email = "' + user_name + '";');
     
-    connection.query('select * from Users where email = "' + user_email + '";', function(err, result){
+    connection.query('select * from Users where name = "' + user_name + '";', function(err, result){
         var response = {};
         if(err){
             console.log("signin error : " + err);
@@ -31,9 +31,9 @@ router.get('/login/:useremail/:userpw', (req, res) => {
         else {
             console.log(result);
             //console.log("output data : " + data)
-            if(result.length == 0){
+            if(result.length == []){
                 response["success"] = "false";
-                response["error"] = "Email not found";
+                response["error"] = "ID not found";
                 res.json(response);
                 return;
             }

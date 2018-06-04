@@ -7,8 +7,8 @@ drop table if exists Users;
 Create table Users(
 	id int not null auto_increment primary key,
 	name varchar(15) not null,
- 	email varchar(31) not null,
- 	pw varchar(15) not null
+ 	pw varchar(15) not null,
+ 	phone_num varchar(14) not null
 );
 
 create table Products(
@@ -37,7 +37,8 @@ create table Trades(
 	final_price int not null
 );
 
-insert into Users values(0, 'temp', 'qwe', 'asd');
+insert into Users values(0, 'qwe', 'asd', '012-3456-7890');
+	insert into Users (name, pw, phone_num) values('kim', 'jae', '010-3090-3502');
 
 
 
