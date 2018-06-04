@@ -12,3 +12,8 @@ var server = app.listen(3000, function(){
 });
 
 app.use(express.static('public'));
+app.use('/api/user/', require('./api/user'))
+
+app.engine('html', require('ejs').renderFile);
+
+

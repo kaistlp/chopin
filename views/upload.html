@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/upload.css" rel="stylesheet">
+  <title>Upload</title>
+</head>
+
+<body>
+
+  <% include ./nav %>
+
+  <main role="main" class="container">
+    <h3>Upload Product</h3>
+    <form class="form-upload">
+      <div class="form-group">
+        <label for="productInput">Title</label>
+        <input type="text" class="form-control" id="productInput">
+      </div>
+      <div class="form-group">
+        <label for="descriptionInput">Description</label>
+        <textarea class="form-control" id="descriptionInput" rows="3"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="maxPriceInput">Maximum Price</label>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="won">₩</span>
+          </div>
+          <input type="number" value="10" min="0" class="form-control" id="maxPriceInput" aria-describedby="won">
+        </div>
+      </div>
+      <div class="bd-submit">
+        <button type="sumbit" class="btn btn-primary">Upload</button>
+      </div>
+    </form>
+  </main>
+</body>
+<% include ./footer %>
+</html>

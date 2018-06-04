@@ -7,19 +7,19 @@ var connection = mysql.createConnection({
   user     : 'public',
   password : 'kaistlp',
 //  port     : 22,
-  database : 'test_db'
+  database : 'sad_db'
 });
 
 var router = express.Router();
 
-router.get('/login/:username/:password', (req, res) => {
-    var username = req.params.username;
-    var password = req.params.password;
+router.get('/login/:username/:userpw', (req, res) => {
+    var user_name = req.params.username;
+    var user_pw = req.params.userpw;
     var sess = req.session;
     console.log("Login request");
-
+    console.log('select * from Users where email = "' + user_name + '";');
     
-    conection.query('SELECT * FROM Users WHERE name = "%s";', username, function(err, result){
+    connection.query('select * from Users where name = "' + user_name + '";', function(err, result){
         var response = {};
         if(err){
             console.log("signin error : " + err);
@@ -29,14 +29,16 @@ router.get('/login/:username/:password', (req, res) => {
             return
         }
         else {
-            if(result.length == 0){
+            console.log(result);
+            //console.log("output data : " + data)
+            if(result.length == []){
                 response["success"] = "false";
                 response["error"] = "ID not found";
                 res.json(response);
                 return;
             }
             var pw_db = result[0].pw;
-            if(pw_db == pw){
+            if(pw_db == user_pw){
                 console.log("login success")
                 response["success"] = "true"
                 response["error"] = "";
