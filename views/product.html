@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/product.css" rel="stylesheet">
+    <title>Product</title>
+  </head>
+
+  <body>
+
+    <% include ./nav %>
+
+
+    <main role="main" class="container">
+
+      <table class="table table-hover table-striped">
+
+        <thead>
+          <tr>
+            <th scope="col" style="width: 50%" id = "attr0">Product Name</th>
+            <th scope="col" style="width: 20%" id = "attr1">Seller</th>
+            <th scope="col" style="width: 10%" id = "attr2">Price</th>
+            <th scope="col" style="width: 10%" id = "attr3">Max Price</th>
+            <th scope="col" style="width: 10%" id = "attr4">Sold</th>
+          </tr>
+        </thead>
+            <tbody>
+              <% for (var h = 0; h < 10; h++) { %>
+              <tr>
+                <th scope="row" id = "product-<%=h %>"></th>
+                <% for (var i = 0; i < 4; i++) { %>
+                <td id="item-<%=h %>-<%=i %>"></td>
+                <% } %>
+              </tr>
+              <% } %>
+            </tbody>
+      </table>
+
+
+    </main>
+	<% include ./footer %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+  <script src="js/product.js"></script>
+  </body>
+
+
+</html>
