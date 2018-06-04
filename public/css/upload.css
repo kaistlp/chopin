@@ -1,0 +1,12 @@
+.container {
+	padding-top: 80px;
+}
+
+.form-upload {
+	width:50%;
+}
+
+.bd-submit {
+	position: relative;
+	float: right;
+}
