@@ -12,4 +12,13 @@ module.exports = function(app)
 	app.get('/product',function(req,res){
 		res.render('product.html');
 	});
+	app.get('/upload',function(req,res){
+		res.render('upload.html');
+	});
+	app.get('/product_info',function(req,res){
+		res.render('product_info.html');
+	});
+	app.get('/mypage',function(req,res){
+		res.render('mypage.html');
+	});
 }
