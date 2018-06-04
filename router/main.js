@@ -9,4 +9,7 @@ module.exports = function(app)
 	app.get('/signin',function(req,res){
 		res.render('signin.html');
 	});
+	app.get('/product',function(req,res){
+		res.render('product.html');
+	});
 }
