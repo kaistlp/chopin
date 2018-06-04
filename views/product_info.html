@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/product_info.css" rel="stylesheet">
+  <title>Product Info</title>
+</head>
+
+<body>
+
+  <% include ./nav %>
+
+  <main role="main" class="container">
+    <div class="product-metadata">
+      <h1 class="title">Laptop</h1>
+      <p class="description">Laptop is very good.</p>
+    </div>
+    <label>User requests for this product</label>
+    <div class="bd-request">
+      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#requestModal">Buy Request</button>
+
+      <!-- Buy Request Modal -->
+      <div class="modal fade" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="requestModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="requestModalLabel">Buy Request</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="priceInput">Price</label>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="won">₩</span>
+                    </div>
+                    <input type="number" value="10" min="0" class="form-control" id="maxPriceInput" aria-describedby="won">
+                  </div>
+                </div>  
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Send Request</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col" style="width:5%">#</th>
+          <th scope="col" style="width:40%">User</th>
+          <th scope="col" style="width:15%">Price</th>
+          <th scope="col" style="width:30%">Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>1</th>
+          <td>Jaewon</td>
+          <td>15000</td>
+          <td>2018-05-23 16:22:33</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>Sangwoo</td>
+          <td>30000</td>
+          <td>2018-06-04 09:38:00</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="bd-choose">
+      <button type="submit" class="btn btn-success">Confirm Request</button>
+    </div>
+  </main>
+</body>
+<% include ./footer %>
+</html>

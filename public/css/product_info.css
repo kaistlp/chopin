@@ -1,0 +1,29 @@
+.container {
+	padding-top: 80px;
+}
+
+.title {
+	font-weight: 300;
+}
+
+.description {
+	font-size: 1.5rem;
+	font-weight: 300;
+}
+
+.bd-request {
+	position: relative;
+	float: right;
+	margin-bottom: 1px;
+}
+
+.product-metadata {
+	padding :1rem;
+	background-color: #f8f9fa;
+	margin-bottom: 2rem;
+}
+
+.bd-choose {
+	position: relative;
+	float: right;
+}
