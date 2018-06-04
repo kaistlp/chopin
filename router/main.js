@@ -18,19 +18,9 @@ module.exports = function(app)
 	});
 	app.get('/signin',function(req,res){
 		res.render('signin.html');
-
-
-
-
-
-		
-
 	});
 
 	app.get('/persons', function(req, res){
-		
-		
-		
 		connection.query('select * from persons', function(err, rows) {
 			if(err) throw err;
 
