@@ -1,4 +1,3 @@
-var attributeNo = 4;
 var lists = {};
 var domain = "http://localhost:3000" 
 
