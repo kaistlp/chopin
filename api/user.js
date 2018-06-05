@@ -42,6 +42,9 @@ router.get('/login/:username/:userpw', (req, res) => {
                 console.log("login success")
                 response["success"] = "true"
                 response["error"] = "";
+                sess.username = user_name;
+                sess.userid = result[0].id;
+                //console.log("session info : " + sess.username);
                 res.json(response);
                 return;
             }
@@ -58,6 +61,7 @@ router.get('/login/:username/:userpw', (req, res) => {
     
 });
 //login complete;
+
 
 
 

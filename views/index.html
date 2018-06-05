@@ -21,5 +21,10 @@
 
     </main>
 	<% include ./footer %>
+  <% if(name){ %>
+    <h2>Success! </h2>
+  <% } else { %>
+    <h2>Login need! </h2>
+  <% } %>
   </body>
 </html>
