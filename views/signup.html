@@ -1,0 +1,33 @@
+<html>
+<head>
+  <title>Sign Up</title>
+  <meta charset="utf-8">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/register.css">
+</head>
+<body>
+  <% include ./nav %>
+
+  <div class="container">
+    <form class="form-sign">
+      <h1 class="text-center">Sign up</h1>
+      <div class="form-group">
+        <label>ID</label>
+        <input type="text" class="mb-4 form-control" id="usernameInput" placeholder="Enter username" required autofocus>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" id="passwordInput" placeholder="Password" required>
+        <input type="password" class="mb-4 form-control" id="passwordInputConfirm" placeholder="Re-enter Password" required>
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="text" class="mb-4 form-control" id="usernameInput" placeholder="010-1234-5678" required autofocus>
+      </div>
+      <button type="submit" class="btn btn-lg btn-primary btn-block mt-2">Sign up</button>
+    </form>
+  </div>
+
+  <% include ./footer %>
+</body>
+</html>

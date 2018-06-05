@@ -1,0 +1,19 @@
+.form-sign {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 100px auto auto auto;
+}
+
+
+.form-sign .form-control {
+	position: relative;
+	box-sizing: border-box;
+	height: auto;
+	padding: 10px;
+	font-size: 16px;
+}
+
+.form-sign .join {
+    margin-top: 20px;
+}
