@@ -4,8 +4,6 @@
     var pw = $('#passwordInput').val();
     var api_url = domain + "/api/user/login/" + id + "/" + pw;
     var login_success = false;
-   	
-   
 
     $.ajax({
         url: api_url,
