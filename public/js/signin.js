@@ -13,7 +13,7 @@
     	
         var success = data.success;
         if (success == "true") {
-        	
+
             window.location.href = "http://localhost:3000";
             login_success = true;
         } else {
@@ -21,7 +21,6 @@
             login_success = false;
         }
     }).fail(function() {
-        //alert("start" + data + "finish");
         alert("Server failed!");
     });
  

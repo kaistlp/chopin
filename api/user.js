@@ -62,6 +62,39 @@ router.get('/login/:username/:userpw', (req, res) => {
 });
 //login complete;
 
+router.get('/logout', (req, res) => {
+    var sess = req.session;
+    console.log("Logout request arrived");
+    req.session.destroy(function(err){
+        
+    });
+    res.json({"success":"true"});
+    return;
+});
+//logout complete;
+
+router.post('/signup/:username/:password/:phone', (req, res) => {
+    var username = req.params.username;
+    var password = req.params.password;
+    var phonenum = req.params.phone;
+    console.log("Signup request arrived");
+
+    connection.query('INSERT INTO Users(name, pw, phone_num) VALUES ("' + username + '", "' + password + '", "' + phonenum + '");', function(err, result){
+        var response = {};
+        if (!err) {
+            console.log("signup success!!");
+            response["success"] = "true";
+            response["error"] = "";
+            res.json(response);
+        } else {
+            console.log(err)
+            response["success"] = "false";
+            response["error"] = "Internal signup server error!";
+            res.json(response);
+        }
+    });
+});
+//signup complete;
 
 
 

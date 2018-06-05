@@ -9,7 +9,8 @@ Create table Users(
 	name varchar(15) not null,
  	pw varchar(15) not null,
  	phone_num varchar(14) not null,
- 	reg_time varchar(14)
+ 	reg_time varchar(14),
+ 	unique (name)
 );
 
 create table Products(
