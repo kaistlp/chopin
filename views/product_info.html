@@ -13,8 +13,8 @@
 
   <main role="main" class="container">
     <div class="product-metadata">
-      <h1 class="title">Laptop</h1>
-      <p class="description">Laptop is very good.</p>
+      <h1 class="title" id="product_attr0">Laptop</h1>
+      <p class="description" id="product_attr1">Laptop is very good.</p>
     </div>
     <label>User requests for this product</label>
     <div class="bd-request">
@@ -45,7 +45,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Send Request</button>
+              <button type="button" class="btn btn-primary" id="send_req">Send Request</button>
             </div>
           </div>
         </div>
@@ -61,24 +61,25 @@
         </tr>
       </thead>
       <tbody>
+        <% for (var row = 0; row < 2; row++) { %>
         <tr>
-          <th>1</th>
-          <td>Jaewon</td>
-          <td>15000</td>
-          <td>2018-05-23 16:22:33</td>
-        </tr>
-        <tr>
-          <th>2</th>
-          <td>Sangwoo</td>
-          <td>30000</td>
-          <td>2018-06-04 09:38:00</td>
-        </tr>
+           <th scope="row" id = "usernum-<%=row %>"></th>
+          <% for (var col = 0; col < 3; col++) { %>
+          <td id="userinfo-<%=row %>-<%=col %>"></td>
+          <% } %>
+          </tr>
+        <% } %>
+
       </tbody>
     </table>
     <div class="bd-choose">
       <button type="submit" class="btn btn-success">Confirm Request</button>
     </div>
   </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+  <script src="js/product_info.js"></script>
+
 </body>
 <% include ./footer %>
 </html>
