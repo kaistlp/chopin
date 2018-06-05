@@ -1,8 +1,10 @@
 var express = require('express');
 var app = express();
-
+var cors = require('cors')
 var session = require('express-session');
 //var router = require('./router/main')(app);
+
+app.use(cors());
 
 app.use(session({
  secret: '@#@$MYSIGN#@$#$',

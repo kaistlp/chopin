@@ -11,12 +11,10 @@ var connection = mysql.createConnection({
 
 router.get('/',function(req,res){
 	var sess = req.session;
-	if(sess.username === undefined){
-		res.render('index.html', {
-			name : sess.username,
-			id : sess.userid
-		})
-	}
+	res.render('index.html', {
+		name : sess.username,
+		id : sess.userid
+	});
 });
 router.get('/about',function(req,res){
 	res.render('about.html');
