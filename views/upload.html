@@ -23,12 +23,30 @@
         <textarea class="form-control" id="descriptionInput" rows="3"></textarea>
       </div>
       <div class="form-group">
-        <label for="maxPriceInput">Maximum Price</label>
+        <label for="initPriceInput">Initial Price</label>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <span class="input-group-text" id="won">₩</span>
           </div>
-          <input type="number" value="10" min="0" class="form-control" id="maxPriceInput" aria-describedby="won">
+          <input type="number" value="10000" min="0" step="1000" class="form-control" id="initPriceInput" aria-describedby="won">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="maxPriceInput">Maximum Price</label>
+        <input class="form-check-input ml-3" type="checkbox" value="" id="maxPriceCheckbox">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="won">₩</span>
+          </div>
+          <input type="number" value="100000" min="0" step="1000" class="form-control" id="maxPriceInput" aria-describedby="won" disabled>
+        </div>
+      </div>
+      <div class="extra-info mb-3">
+        <label for="input-group">Extra Information</label>
+        <button type="button" class="btn btn-secondary btn-sm ml-2" id="btn-add-extra-info" onclick="add_info()">Add</button>
+        <div class="input-group" id="extra-info-input-0">
+          <input type="text" class="form-control input-group-text col-4 font-weight-bold" placeholder="Name.." id="ExtraName0">
+          <input type="text" class="form-control" placeholder="Value.." id="ExtraValue0">
         </div>
       </div>
       <div class="bd-submit">

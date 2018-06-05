@@ -10,3 +10,11 @@
 	position: relative;
 	float: right;
 }
+
+.extra-input1 {
+	width: 25%;
+}
+
+.input-group-text {
+	text-align: left;
+}
