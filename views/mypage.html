@@ -16,15 +16,15 @@
     <form class="form-upload">
       <div class="form-group row">
         <h5 class="col-2">Name</h5>
-        <div class="col-10">Sangwoo</div>
+        <div id="myname" class="col-10"></div>
       </div>
       <div class="form-group row">
         <h5 class="col-2">Phone</h5>
-        <div class="col-10">010-7539-4833</div>
+        <div id="myphone" class="col-10"></div>
       </div>
     </form>
-    <label>My Product <span class="badge badge-secondary">2</span></label>
-    <table class="table table-hover table-striped">
+    <label>My Product <span id="productNum" class="badge badge-secondary"></span></label>
+    <table id="myproduct" class="table table-hover table-striped">
       <thead>
         <tr>
           <th scope="col" style="width: 50%">Product Name</th>
@@ -34,22 +34,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>2</td>
-          <td>3</td>
-          <td>4</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>2</td>
-          <td>3</td>
-          <td>4</td>
-        </tr>
       </tbody>
     </table>
-    <label>My Request <span class="badge badge-secondary">1</span></label>
-    <table class="table table-hover table-striped">
+    <label>My Request <span id="requestNum" class="badge badge-secondary"></span></label>
+    <table id="myrequest" class="table table-hover table-striped">
       <thead>
         <tr>
           <th scope="col" style="width: 50%">Product Name</th>
@@ -59,14 +47,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>2</td>
-          <td>3</td>
-          <td>4</td>
-        </tr>
       </tbody>
   </main>
 </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+  <script src="js/mypage.js"></script>
 <% include ./footer %>
 </html>
