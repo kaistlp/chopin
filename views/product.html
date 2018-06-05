@@ -10,7 +10,7 @@
   <% include ./nav %>
   <main role="main" class="container">
     <div class="table-responsive">
-      <table class="table table-hover table-striped">
+      <table id="products" class="table table-hover table-striped">
         <thead>
           <tr>
             <th scope="col" style="width: 50%" id = "attr0">Product Name</th>
@@ -21,14 +21,7 @@
           </tr>
         </thead>
         <tbody>
-          <% for (var h = 0; h < 10; h++) { %>
-          <tr>
-            <th scope="row" id = "product-<%=h %>"></th>
-            <% for (var i = 0; i < 4; i++) { %>
-            <td id="item-<%=h %>-<%=i %>"></td>
-            <% } %>
-          </tr>
-          <% } %>
+
         </tbody>
       </table>
     </div>

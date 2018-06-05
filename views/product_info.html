@@ -51,7 +51,7 @@
         </div>
       </div>
     </div>
-    <table class="table table-hover">
+    <table id="requests" class="table table-hover">
       <thead>
         <tr>
           <th scope="col" style="width:5%">#</th>
@@ -61,14 +61,7 @@
         </tr>
       </thead>
       <tbody>
-        <% for (var row = 0; row < 2; row++) { %>
-        <tr>
-           <th scope="row" id = "usernum-<%=row %>"></th>
-          <% for (var col = 0; col < 3; col++) { %>
-          <td id="userinfo-<%=row %>-<%=col %>"></td>
-          <% } %>
-          </tr>
-        <% } %>
+
 
       </tbody>
     </table>

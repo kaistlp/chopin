@@ -26,15 +26,20 @@ function title() {
     }
 
 function user() {
-	for (var users = 0; users<user_num;users+=1){
-		var user_head = document.getElementById("usernum-"+users);
-        for (var col = 0; col < user_attr; col += 1){
-            var user_info = document.getElementById("userinfo-"+users+"-"+col);
-            user_info.textContent = "attribute "+col+" by user"+users;
-        }
-
-    	user_head.textContent = users
-    }
+	 var item_no = 8;
+     var table = document.getElementById("requests");
+     for (var i = 0;i<item_no;i+=1){
+        var row = table.insertRow(i+1);
+        var No = row.insertCell(0);
+        var User = row.insertCell(1);
+        var Price = row.insertCell(2);
+        var Time = row.insertCell(3);
+        No.innerHTML = i;
+        User.innerHTML = "User "+i;
+        Price.innerHTML = "Price "+i;
+        Time.innerHTML = "Time "+i;
+        
+     }
 
 }
 
