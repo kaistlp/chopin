@@ -24,7 +24,7 @@ function translation(uid) {
 }
 
 function show_items() {
-    var item_no = 8;
+    var item_no = 0;
     var api_url = domain + "/api/product/all";
     $.ajax({
         url: api_url,
