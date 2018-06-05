@@ -1,6 +1,14 @@
 var express = require('express');
 var app = express();
-var router = require('./router/main')(app);
+
+var session = require('express-session');
+//var router = require('./router/main')(app);
+
+app.use(session({
+ secret: '@#@$MYSIGN#@$#$',
+ resave: false,
+ saveUninitialized: true
+}));
 
 app.set('views',__dirname + '/views');
 app.set('view engine', 'ejs');
@@ -12,6 +20,7 @@ var server = app.listen(3000, function(){
 });
 
 app.use(express.static('public'));
+app.use('/', require('./router/main'))
 app.use('/api/user/', require('./api/user'))
 
 app.engine('html', require('ejs').renderFile);
