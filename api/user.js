@@ -31,7 +31,7 @@ router.get('/login/:username/:userpw', (req, res) => {
         else {
             console.log(result);
             //console.log("output data : " + data)
-            if(result.length == []){
+            if(result.length == 0){
                 response["success"] = "false";
                 response["error"] = "ID not found";
                 res.json(response);
