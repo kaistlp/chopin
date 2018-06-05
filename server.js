@@ -22,6 +22,8 @@ var server = app.listen(3000, function(){
 app.use(express.static('public'));
 app.use('/', require('./router/main'))
 app.use('/api/user/', require('./api/user'))
+app.use('/api/product/', require('./api/productlist'))
+
 
 app.engine('html', require('ejs').renderFile);
 
