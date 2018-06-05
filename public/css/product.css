@@ -1,3 +1,12 @@
 .container {
 	padding-top: 80px;
 }
+
+.table-responsive {
+	max-height: 600px;
+}
+
+.search {
+	position: relative;
+	float: right;
+}
