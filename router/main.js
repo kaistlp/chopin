@@ -50,14 +50,21 @@ router.get('/upload',function(req,res){
 	}
 	res.render('upload.html');
 });
+
+router.get('/logout',function(req,res){
+	var sess = req.session;
+	console.log("Logout request arrived");
+    req.session.destroy(function(err){
+        
+    });
+	res.redirect('/')
+});
+
 router.get('/product_info',function(req,res){
 	res.render('product_info.html');
 });
 router.get('/mypage',function(req,res){
 	res.render('mypage.html');
-});
-router.get('/traded',function(req,res){
-	res.render('traded.html');
 });
 
 module.exports = router;
