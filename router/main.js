@@ -61,12 +61,6 @@ router.get('/logout',function(req,res){
 });
 
 router.get('/product_info',function(req,res){
-	var sess = req.session;
-	if(sess.username === undefined){
-		console.log("login needed before see product");
-		res.redirect('/signin');
-		return;
-	}
 	res.render('product_info.html');
 });
 router.get('/mypage',function(req,res){
