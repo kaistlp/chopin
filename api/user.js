@@ -77,9 +77,11 @@ router.post('/signup/:username/:password/:phone', (req, res) => {
     var username = req.params.username;
     var password = req.params.password;
     var phonenum = req.params.phone;
+    var d = new Date()
+    var time = d.toUTCString()
     console.log("Signup request arrived");
 
-    connection.query('INSERT INTO Users(uname, pw, phone_num) VALUES ("' + username + '", "' + password + '", "' + phonenum + '");', function(err, result){
+    connection.query('INSERT INTO Users(uname, pw, phone_num,reg_time) VALUES ("' + username + '", "' + password + '", "' + phonenum + '", "' + time +'");', function(err, result){
         var response = {};
         if (!err) {
             console.log("signup success!!");

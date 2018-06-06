@@ -83,9 +83,14 @@ router.get('/buy/:pid/:price', (req, res) => {
   var offer_price = req.params.price;
   var uid = req.session.userid;
   var reg_time = "";
+  var d = new Date()
+  var time = d.toUTCString()
+
   console.log('buy request, regist demands');
 
-  connection.query('insert into Demands values(' + uid + ', ' + pid + ', ' + offer_price + ', ' + "reg_time" + ') on duplicate key update uid = ' + uid + ', pid = ' + pid + ', offer_price = ' + offer_price + ';', function(err, result){
+  connection.query('insert into Demands values(' + uid + ', ' + pid + ', ' + offer_price + ', "' + time
+   + '") on duplicate key update uid = ' + uid + ', pid = ' + pid + ', offer_price = ' + offer_price
+    + ', reg_time = "' + time +'";', function(err, result){
     var response = {};
     if(!err){
       console.log('buy require success!!!');
