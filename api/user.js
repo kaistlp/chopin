@@ -19,7 +19,7 @@ router.get('/login/:username/:userpw', (req, res) => {
     console.log("Login request");
     console.log('select * from Users where email = "' + user_name + '";');
     
-    connection.query('select * from Users where name = "' + user_name + '";', function(err, result){
+    connection.query('select * from Users where uname = "' + user_name + '";', function(err, result){
         var response = {};
         if(err){
             console.log("signin error : " + err);
