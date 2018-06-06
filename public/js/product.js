@@ -54,6 +54,9 @@ function setup() {
     var productURL = domain + "/product";
     $("#form-search").submit(function(event) {
         var keyword = $("#searchInput").val();
+        if (keyword == '') {
+            keyword = null;
+        }
         var url = productURL;
         url = getURL(url, keyword, $.urlParam('type'), $.urlParam('order'));
         window.location.href = url;
