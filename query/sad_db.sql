@@ -59,7 +59,7 @@ insert into Products (uid, pname, max_price, init_price, is_sold, reg_time)
 	values(1, 'book', null, 1, 'N', '20120727150018'),
 	(1, 'cpu', null, 200, 'N', '20120727150019'),
 	(2, 'bike', null, 30000, 'N', '20120727150020'),
-	(2, 'glass', 200, 100, 'N', '20170727150018');
+	(2, 'glass', 200, 100, 'N', '20170727150018'),
 	(3, 'Gold', 200, 100, 'Y', '20170727150018');
 
 insert into Descriptions values (1, 'description', 'Old car just like a new car!!!');
