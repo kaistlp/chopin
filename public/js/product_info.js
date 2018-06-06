@@ -57,12 +57,17 @@ function setup() {
             $("#div-btn-buy").removeClass('d-none');
         }
     }
-
+    if (product_data[0].is_sold == 'Y') {
+        $("#badge-sale").addClass('d-none');
+    } else {
+        $("#badge-sold").addClass('d-none');
+    }
 }
 
 function title() {
     $("#product-title").html(pname);
     $("#owner-name").html(product_data[0].uname);
+    $("#owner-phone-num").html(product_data[0].phone_num);
     for (var i=0; i<product_data.length; i++) {
         if (product_data[i].name == "description") {
             $("#product-description").html(product_data[i].value);
@@ -87,10 +92,12 @@ function user() {
         var row = table.insertRow(i);
         var No = row.insertCell(0);
         var User = row.insertCell(1);
-        var Price = row.insertCell(2);
-        var Time = row.insertCell(3);
+        var Phone = row.insertCell(2);
+        var Price = row.insertCell(3);
+        var Time = row.insertCell(4);
         No.innerHTML = i;
         User.innerHTML = demands[i].uname;
+        Phone.innerHTML = demands[i].phone_num;
         Price.innerHTML = demands[i].offer_price;
         Time.innerHTML = demands[i].reg_time;
         row.setAttribute("id", demands[i].uid);

@@ -27,3 +27,7 @@
 	position: relative;
 	float: right;
 }
+
+.badge {
+	font-size: 50%;
+}

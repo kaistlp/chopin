@@ -46,7 +46,7 @@ router.get('/info/:pid', (req, res) => {
   var pid = req.params.pid;
   var sess = req.session;
   console.log('find product info');
-  var sql_query = ' select Products.pname, Products.uid, Users.uname, Products.is_sold, Descriptions.name, Descriptions.value from Descriptions'
+  var sql_query = ' select Products.pname, Products.uid, Users.uname, Users.phone_num, Products.is_sold, Descriptions.name, Descriptions.value from Descriptions'
   + ' inner join Products on Products.pid = Descriptions.pid'
   + ' inner join Users on Products.uid = Users.id'
   + ' where Products.pid = ' + pid +';';
@@ -66,7 +66,7 @@ router.get('/info/:pid', (req, res) => {
     // response["description"] = result[0].value;
     response["success"] = "true";
     response["error"] = "";
-    connection.query('select Demands.uid, Users.uname, Demands.offer_price, Demands.reg_time from Demands inner join Users on Users.id = Demands.uid where Demands.pid = ' + pid + ' order by Demands.offer_price desc;', function(err, tables){
+    connection.query('select Demands.uid, Users.uname, Users.phone_num, Demands.offer_price, Demands.reg_time from Demands inner join Users on Users.id = Demands.uid where Demands.pid = ' + pid + ' order by Demands.offer_price desc;', function(err, tables){
       console.log(tables);
       response["demands"] = tables;
       res.json(response);
