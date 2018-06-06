@@ -20,7 +20,7 @@ router.get('/all', (req, res) => {
     var order = req.query.order;
     console.log('Keyword: ' + keyword+", type="+type+", order="+order);
     var response = {};
-    var sql_query = 'select pid, pname, max_price, init_price, is_sold, t1.reg_time, uname from Products AS t1 INNER JOIN Users AS t2 ON t1.uid=t2.id';
+    var sql_query = 'select result1.pid, pname, max_price, init_price, is_sold, reg_time, uname, current_price from (select pid, pname, max_price, init_price, is_sold, t1.reg_time, uname from Products AS t1 INNER JOIN Users AS t2 ON t1.uid=t2.id) as result1 LEFT Join (select pid, max(offer_price) as current_price from Demands group by Demands.pid) as result2 on result1.pid=result2.pid';
     if (keyword !== undefined) {
         sql_query = sql_query + ' where pname like "%' + keyword + '%"';
     }
@@ -46,7 +46,7 @@ router.get('/info/:pid', (req, res) => {
   var pid = req.params.pid;
   var sess = req.session;
   console.log('find product info');
-  var sql_query = ' select Products.pname, Products.uid, Users.uname, Users.phone_num, Products.is_sold, Descriptions.name, Descriptions.value from Descriptions'
+  var sql_query = ' select Products.pname, Products.uid, Users.uname, Users.phone_num, Products.is_sold, Products.init_price, Descriptions.name, Descriptions.value from Descriptions'
   + ' inner join Products on Products.pid = Descriptions.pid'
   + ' inner join Users on Products.uid = Users.id'
   + ' where Products.pid = ' + pid +';';
