@@ -63,7 +63,7 @@ function setup() {
         event.preventDefault();
     });
 
-    var typeArray = ["pname", "uname", "init_price", "max_price", "is_sold", "reg_time"];
+    var typeArray = ["pname", "seller_name", "buyer_name", "final_price", "reg_time"];
     for (var i = 0, len = typeArray.length; i < len; i++) {
         var type = typeArray[i];
         $("#order_" + type).attr('href', getURL(productURL, $.urlParam('keyword'), type, calculateToggledOrder(type)));
@@ -87,7 +87,6 @@ function show_items() {
         item_no = data.length
         lists = data
     })
-    console.log(lists);
     var table = document.getElementById("table-traded").getElementsByTagName('tbody')[0];
     if (item_no == 0) {
         var row = table.insertRow(i);
