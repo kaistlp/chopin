@@ -27,6 +27,7 @@ app.use('/api/user/', require('./api/user'))
 app.use('/api/product/', require('./api/productlist'))
 app.use('/api/mypage/', require('./api/mypage'))
 app.use('/api/upload/', require('./api/upload'))
+app.use('/api/traded/', require('./api/traded'))
 
 
 app.engine('html', require('ejs').renderFile);
