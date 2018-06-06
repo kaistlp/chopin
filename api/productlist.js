@@ -46,9 +46,10 @@ router.get('/info/:pid', (req, res) => {
   var pid = req.params.pid;
   var sess = req.session;
   console.log('find product info');
-  console.log('select pname, value from Products inner join Descriptions on Products.pid = Descriptions.pid where Products.pid = ' + pid + ' and Descriptions.name = "description";');
+  var sql_query = 'select Products.pname, Products.uid, Descriptions.name, Descriptions.value from Descriptions inner join Products on Products.pid = Descriptions.pid where Products.pid = ' + pid + ';'
+  console.log(sql_query);
 
-  connection.query('select Products.pname, Products.uid, Descriptions.value from Products inner join Descriptions on Products.pid = Descriptions.pid where Products.pid = ' + pid + ' and Descriptions.name = "description";', function(err, result){
+  connection.query(sql_query, function(err, result){
     var response = {};
     console.log(result);
     if(result.length == 0){
@@ -58,9 +59,8 @@ router.get('/info/:pid', (req, res) => {
       return;
     }
     response["sessid"] = sess.userid;
-    response["sellid"] = result[0].uid;
-    response["pname"] = result[0].pname;
-    response["description"] = result[0].value;
+    response["all_data"] = result;
+    // response["description"] = result[0].value;
     response["success"] = "true";
     response["error"] = "";
     connection.query('select Users.uname, Demands.offer_price, Demands.reg_time from Demands inner join Users on Users.id = Demands.uid where Demands.pid = ' + pid + ' order by Demands.offer_price desc;', function(err, tables){
