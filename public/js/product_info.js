@@ -90,9 +90,18 @@ function user() {
 }
 
 function request() {
-    var price = document.getElementById("maxPriceInput").value
-    alert(price);
-    //TODO : send input to mysql data
+	var price = document.getElementById("maxPriceInput").value
+	var pid = $.urlParam('pid');
+	var api_url = domain + "/api/product_info/" + sessid + "/" + pid + "/" + price;
+    $.ajax({
+        url: api_url,
+        cache: false,
+        async: false
+    }).done(function(data) {
+        alert("Request Successed!")
+    }).fail(function() {
+        alert("Server failed!");
+    });
 }
 
 function select() {

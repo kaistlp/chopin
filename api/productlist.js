@@ -74,4 +74,68 @@ router.get('/info/:pid', (req, res) => {
 
 })
 
+
+router.post('/buy/:pid/:price', (req, res) => {
+  var pid = req.params.pid;
+  var offer_price = req.params.price;
+  var uid = req.session.userid;
+  var reg_time = "";
+  console.log('buy request, regist demands');
+
+  connection.query('insert into Demands values(' + uid + ', ' + pid + ', ' + offer_price + ', ' + "reg_time" + ');', function(err, result){
+    var response = {};
+    if(!err){
+      console.log('buy require success!!!');
+      response["success"] = "true";
+      response["error"] = "";
+      res.json(response);
+    }
+    else {
+      console.log(err);
+      response["success"] = "false";
+      response["error"] = "Internal buy request server error!";
+      res.json(response);
+    }
+  })
+})
+
+
+router.get('/confirm/:pid/:buyerid/:price', (req, res) => {
+  var pid = req.params.pid;
+  var buyerid = req.params.buyerid;
+  var sellerid = req.session.userid;
+  var finalprice = req.params.price;
+
+  console.log('confirm request, regist Trades, update Products');
+
+  connection.query('insert into Trades values (' + sellerid + ', ' + buyerid + ', ' + pid + ', ' + finalprice + ');', function(err, result) {
+    var response = {};
+    if(err){
+      console.log('insert to Trades : ' + err);
+      response["success"] = "false";
+      response["error"] = "Internal confirm request server error!";
+      res.json(response);
+    }
+    else{
+      console.log('confirm require : adding to Trades success');
+      connection.query('update Products set is_sold = "Y" where pid = ' + pid + ';', function(err, result) {
+        if(err){
+          console.log('update Products : ' + err);
+          response["success"] = "false";
+          response["error"] = "Internal confirm request server error!";
+          connection.query('delete from Trades where seller_id = ' + sellerid + ' and buyer_id = ' + buyerid + ' and pid = ' + pid + ');')
+          res.json(response);
+        }
+        else{
+          console.log('confirm request success!!!');
+          response["success"] = "true";
+          response["error"] = "";
+          res.json(response);
+        }
+      })
+    }
+  })
+})
+
+
 module.exports = router;
