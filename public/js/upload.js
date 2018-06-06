@@ -15,7 +15,7 @@ function submit() {
 		price = 0;
 	}
 
-	register(prod,description,price,initprice,price)
+	register(prod,description,initprice,price)
 }
 
 var i = 0;
@@ -46,7 +46,7 @@ function register(prod,description,initprice,price){
         	alert("fail")
         }
     })
-    var api_url = domain + "/api/upload/description/"+description+"/";
+    var api_url = domain + "/api/upload/description/ "+description+"/";
     $.ajax({
         url: api_url,
         cache: false,

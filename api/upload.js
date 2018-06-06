@@ -20,9 +20,7 @@ router.get('/new/:pname/:pinitial/:pmax', (req, res) => {
     var pmax = req.params.pmax;  
     var sess = req.session;
     var uid = sess.uid;
-    if (pmax == 0){
-    	pmax = "null"
-    }  
+
     var sess = req.session;
     console.log(pname);
     var flag = 0;
