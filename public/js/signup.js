@@ -1,7 +1,6 @@
 var domain = "http://localhost:3000" 
 
 $('#btn_signup').click(function(){
-	alert('button click!!');
 	var username = $("#usernameInput").val();
 	var password = $("#passwordInput").val();
 	var password_correct = $("#passwordInput").val() == $("#passwordInputConfirm").val();
@@ -16,7 +15,7 @@ $('#btn_signup').click(function(){
 		}).done(function(data) {
 			var success = data.success;
 			if(success == "true"){
-				alert('signup success!!!');
+				alert('Sign Up success!!!');
 				window.location.href = "http://localhost:3000";
 				signup_success = true;
 			}
