@@ -110,6 +110,7 @@ function request() {
         async: false
     }).done(function(data) {
         alert("Request Successed!")
+        window.location.reload()
     }).fail(function() {
         alert("Server failed!");
     });
@@ -131,13 +132,30 @@ function confirm() {
     } else {
         console.log();
         $('#confirm-user').html(selectedList[0].childNodes[1].innerHTML);
+
+
         $('#confirmModal').modal('show');
         $('#btn-confirm').attr("onclick", "do_trade("+selectedList[0].getAttribute("id")+")");
     }
 }
 
 function do_trade(uid) {
-    alert(uid);
+    var pid = $.urlParam('pid');
+    var selectedList = document.getElementsByClassName('table-primary');
+    var price = selectedList[0].childNodes[2].innerHTML;
+    var buyer = selectedList[0].childNodes[1].innerHTML;
+    
+    var api_url = domain + "/api/product/confirm/" + pid + "/" + buyer + "/" +price;
+    $.ajax({
+        url: api_url,
+        cache: false,
+        async: false
+    }).done(function(data) {
+        alert("Request Successed!")
+        window.location.reload()
+    }).fail(function() {
+        alert("Server failed!");
+    });
 }
 
 setup();
