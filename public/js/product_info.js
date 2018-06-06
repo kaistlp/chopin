@@ -1,4 +1,4 @@
-var domain = "http://localhost:3000" 
+var domain = "http://localhost:3000"
 const attributeNo = 2;
 const user_attr = 3;
 var user_num = 2;
@@ -9,6 +9,7 @@ var descr = "";
 var success = "false";
 var error = "";
 var demands = [];
+var product_data = {};
 
 
 $.urlParam = function(name) {
@@ -21,7 +22,7 @@ $.urlParam = function(name) {
 }
 
 
-function setup(){
+function setup() {
     var pid = $.urlParam('pid');
     var api_url = domain + "/api/product/info/" + pid;
 
@@ -29,42 +30,50 @@ function setup(){
         url: api_url,
         cache: false,
         async: false
-    }).done(function(data){
-        if(data.success == "false"){
+    }).done(function(data) {
+        if (data.success == "false") {
             alert(data.error);
             window.location.href = "http://localhost:3000/product"
             return;
         }
-
-        sellid = data.sellid;
+        product_data = data.all_data;
+        console.log(product_data);
+        sellid = product_data[0].uid;
         sessid = data.sessid;
-        pname = data.pname;
-        descr = data.description;
+        pname = product_data[0].pname;
+        // descr = data.description;
         demands = data.demands;
     })
-	title();
-	user();
-	document.getElementById("send_req").onclick = function() {request()};
+    title(product_data);
+    user();
+    document.getElementById("send_req").onclick = function() { request() };
     document.getElementById("confirm_req").onclick = confirm;
 
 }
+
 function title() {
-        for (var attr = 0; attr < attributeNo; attr += 1){
-            var info = document.getElementById("product_attr" +attr);
-			switch(attr){
-				case 0:
-					info.innerHTML = pname
-					break;
-				case 1:
-					info.innerHTML = descr
-			}
+    $("#product-title").html(pname);
+    for (var i=0; i<product_data.length; i++) {
+        if (product_data[i].name == "description") {
+            $("#product-description").html(product_data[i].value);
+        } else {
+            var original = document.getElementById("extra-info");
+            var clone = original.cloneNode(true);
+            console.log(clone.childNodes);
+            clone.childNodes[1].innerHTML = product_data[i].name;
+            clone.childNodes[3].innerHTML = product_data[i].value;
+            clone.classList.remove("d-none");
+            original.parentNode.appendChild(clone);
+
         }
     }
 
+}
+
 function user() {
-	 var item_no = demands.length;
-     var table = document.getElementById("requests").getElementsByTagName('tbody')[0];
-     for (var i = 0;i<item_no;i+=1){
+    var item_no = demands.length;
+    var table = document.getElementById("requests").getElementsByTagName('tbody')[0];
+    for (var i = 0; i < item_no; i += 1) {
         var row = table.insertRow(i);
         var No = row.insertCell(0);
         var User = row.insertCell(1);
@@ -76,7 +85,7 @@ function user() {
         Time.innerHTML = demands[i].reg_time;
         row.setAttribute("id", i);
         row.onclick = select;
-     }
+    }
 
 }
 
@@ -109,7 +118,7 @@ function confirm() {
         alert("Please select request!");
         return false;
     } else {
-        alert("You select product no."+selectedList[0].getAttribute("id"));
+        alert("You select product no." + selectedList[0].getAttribute("id"));
     }
 }
 

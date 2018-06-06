@@ -69,6 +69,7 @@ insert into Descriptions values (4, 'description', 'Whing Whing SSang SSang');
 insert into Descriptions values (5, 'description', '');
 insert into Descriptions values (6, 'description', 'Very Expensive');
 insert into Descriptions values (1, 'Period of Use', '10 Years');
+insert into Descriptions values (1, 'Country', 'Korea');	
 
 
 insert into Demands values(3, 1, 2000, null);
