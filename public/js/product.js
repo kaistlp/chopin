@@ -8,19 +8,7 @@ function setup() {
 	document.getElementById("search_go").onclick = function() {search()};
 }
 
-function translation(uid) {
-    var api_url = domain + "/api/product/user/"+uid;
-    var temp = ""
-    $.ajax({
-        url: api_url,
-        cache: false,
-        async: false
-    }).done(function(data) {
-        temp =  data[0]["name"]
-    })
-    return temp
 
-}
 
 function show_items() {
     var item_no = 0;
@@ -44,8 +32,8 @@ function show_items() {
         var Sold = row.insertCell(5);
         var Time = row.insertCell(6);
         No.innerHTML = i+1;
-        Name.innerHTML = lists[i]["name"];
-        Seller.innerHTML = translation(lists[i]["uid"]);
+        Name.innerHTML = lists[i]["pname"];
+        Seller.innerHTML = lists[i]["uname"];
         Price.innerHTML = lists[i]["init_price"];
         MaxPrice.innerHTML = lists[i]["max_price"];
         Sold.innerHTML = lists[i]["is_sold"];
