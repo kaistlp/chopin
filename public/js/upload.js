@@ -1,8 +1,10 @@
 var domain = "http://localhost:3000" 
 
+
 setup();
 
 function setup() {
+	if(userid)
 	document.getElementById("upload").onclick = function() {submit()};
 }
 
@@ -11,7 +13,6 @@ function submit() {
 	var description = document.getElementById("descriptionInput").value;
 	var price = document.getElementById("maxPriceInput").value;
 	alert(prod + " " + description + " " + price);
-	
 }
 
 var i = 0;
