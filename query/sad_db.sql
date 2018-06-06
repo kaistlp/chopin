@@ -62,9 +62,19 @@ insert into Products (uid, pname, max_price, init_price, is_sold, reg_time)
 	(2, 'glass', 200, 100, 'N', '20170727150018');
 
 insert into Descriptions values (1, 'description', 'Old car just like a new car!!!');
+insert into Descriptions values (2, 'description', 'So clean!!');
+insert into Descriptions values (3, 'description', 'BitCoin!!!!!!!!');
+insert into Descriptions values (4, 'description', 'Whing Whing SSang SSang');
+insert into Descriptions values (5, 'description', '');
+insert into Descriptions values (1, 'Period of Use', '10 Years');
 
-insert into Demands values(2, 1, 2000, null);
 
+insert into Demands values(3, 1, 2000, null);
+insert into Demands values(2, 1, 3000, null);
+insert into Demands values(3, 1, 4000, null);
+insert into Demands values(2, 2, 3, null);
+insert into Demands values(3, 2, 2, null);
+insert into Demands values(1, 4, 300, null);
 
 
 
