@@ -25,5 +25,12 @@ router.get('/all', (req, res) => {
     return
 })
 
+router.get('/info/:pid', (req, res) => {
+  var pid = req.params.pid;
+  var sess = req.session;
+  console.log('find product info')
+  
 
+
+})
 module.exports = router;
