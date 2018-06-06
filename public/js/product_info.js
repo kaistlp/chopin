@@ -83,7 +83,7 @@ function user() {
         User.innerHTML = demands[i].uname;
         Price.innerHTML = demands[i].offer_price;
         Time.innerHTML = demands[i].reg_time;
-        row.setAttribute("id", i);
+        row.setAttribute("id", demands[i].uid);
         row.onclick = select;
     }
 
@@ -118,9 +118,15 @@ function confirm() {
         alert("Please select request!");
         return false;
     } else {
-        alert("You select product no." + selectedList[0].getAttribute("id"));
+        console.log();
+        $('#confirm-user').html(selectedList[0].childNodes[1].innerHTML);
+        $('#confirmModal').modal('show');
+        $('#btn-confirm').attr("onclick", "do_trade("+selectedList[0].getAttribute("id")+")");
     }
 }
 
+function do_trade(uid) {
+    alert(uid);
+}
 
 setup();
