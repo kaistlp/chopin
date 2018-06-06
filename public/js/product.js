@@ -16,7 +16,6 @@ function getURL(url, keyword, type, order) {
         newURL = newURL + "keyword=" + keyword;
     }
 
-
     if (type !== null) {
         if (keyword !== null) {
             newURL = newURL + "&";
@@ -38,7 +37,7 @@ function calculateToggledOrder(type) {
     }
 }
 
-function calculateOrderHTML (type) {
+function calculateOrderHTML(type) {
     if ($.urlParam("type") != type) {
         return "";
     } else {
@@ -67,6 +66,7 @@ function setup() {
         $("#order_" + type).attr('href', getURL(productURL, $.urlParam('keyword'), type, calculateToggledOrder(type)));
         $("#order_" + type).append(calculateOrderHTML(type));
     }
+    $("#searchInput").val($.urlParam('keyword'));
 }
 
 function show_items() {
@@ -84,9 +84,14 @@ function show_items() {
         item_no = data.length
         lists = data
     })
-    var table = document.getElementById("products");
+    var table = document.getElementById("products").getElementsByTagName('tbody')[0];
+    if (item_no == 0) {
+        var row = table.insertRow(i);
+        row.innerHTML = "<td colspan='7' class='text-center'>No data found.</td>";
+        return;
+    }
     for (var i = 0; i < item_no; i += 1) {
-        var row = table.insertRow(i + 1);
+        var row = table.insertRow(i);
         var No = row.insertCell(0);
         var Name = row.insertCell(1);
         var Seller = row.insertCell(2);
@@ -94,6 +99,7 @@ function show_items() {
         var MaxPrice = row.insertCell(4);
         var Sold = row.insertCell(5);
         var Time = row.insertCell(6);
+        console.log(lists[i]);
         No.innerHTML = i + 1;
         Name.innerHTML = lists[i]["pname"];
         Seller.innerHTML = lists[i]["uname"];
@@ -101,6 +107,12 @@ function show_items() {
         MaxPrice.innerHTML = lists[i]["max_price"];
         Sold.innerHTML = lists[i]["is_sold"];
         Time.innerHTML = lists[i]["reg_time"];
+        row.id = lists[i]["pid"];
+
+        row.onclick = function(){
+            window.location.href = domain + "/product_info?" + "pid="+this.id;
+        };
+        row.classList.add("clickable");
     }
 }
 setup();

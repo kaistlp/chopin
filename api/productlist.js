@@ -20,7 +20,7 @@ router.get('/all', (req, res) => {
     var order = req.query.order;
     console.log('Keyword: ' + keyword+", type="+type+", order="+order);
     var response = {};
-    var sql_query = 'select * from Products AS t1 INNER JOIN Users AS t2 ON t1.uid=t2.id';
+    var sql_query = 'select pid, pname, max_price, init_price, is_sold, t1.reg_time, uname from Products AS t1 INNER JOIN Users AS t2 ON t1.uid=t2.id';
     if (keyword !== undefined) {
         sql_query = sql_query + ' where pname like "%' + keyword + '%"';
     }
