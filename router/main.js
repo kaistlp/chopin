@@ -67,4 +67,8 @@ router.get('/mypage',function(req,res){
 	res.render('mypage.html');
 });
 
+router.get('/traded',function(req,res){	
+	res.render('traded.html');	
+});
+
 module.exports = router;
