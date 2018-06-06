@@ -29,7 +29,8 @@ create table Demands(
 	offer_price int not null,
 	reg_time varchar(14),
 	foreign key (uid) references Users(id) on delete cascade,
-	foreign key (pid) references Products(pid) on delete cascade
+	foreign key (pid) references Products(pid) on delete cascade,
+	primary key (uid, pid)
 );
 
 create table Trades(
@@ -39,14 +40,16 @@ create table Trades(
 	final_price int not null,
 	foreign key (seller_id) references Users(id) on delete cascade,
 	foreign key (buyer_id) references Users(id) on delete cascade,
-	foreign key (pid) references Products(pid) on delete cascade
+	foreign key (pid) references Products(pid) on delete cascade,
+	primary key (seller_id, buyer_id, pid)
 );
 
 create table Descriptions(
 	pid int not null,
 	name varchar(14) not null,
 	value varchar(255) not null,
-	foreign key (pid) references Products(pid) on delete cascade
+	foreign key (pid) references Products(pid) on delete cascade,
+	primary key (pid, name)
 );
 
 insert into Users (uname, pw, phone_num) values('qwe', 'asd', '012-3456-7890');
@@ -74,7 +77,7 @@ insert into Descriptions values (1, 'Country', 'Korea');
 
 insert into Demands values(3, 1, 2000, null);
 insert into Demands values(2, 1, 3000, null);
-insert into Demands values(3, 1, 4000, null);
+
 insert into Demands values(2, 2, 3, null);
 insert into Demands values(3, 2, 2, null);
 insert into Demands values(1, 4, 300, null);

@@ -75,14 +75,14 @@ router.get('/info/:pid', (req, res) => {
 })
 
 
-router.post('/buy/:pid/:price', (req, res) => {
+router.get('/buy/:pid/:price', (req, res) => {
   var pid = req.params.pid;
   var offer_price = req.params.price;
   var uid = req.session.userid;
   var reg_time = "";
   console.log('buy request, regist demands');
 
-  connection.query('insert into Demands values(' + uid + ', ' + pid + ', ' + offer_price + ', ' + "reg_time" + ');', function(err, result){
+  connection.query('insert into Demands values(' + uid + ', ' + pid + ', ' + offer_price + ', ' + "reg_time" + ') on duplicate key update uid = ' + uid + ', pid = ' + pid + ', offer_price = ' + offer_price + ';', function(err, result){
     var response = {};
     if(!err){
       console.log('buy require success!!!');
@@ -94,7 +94,7 @@ router.post('/buy/:pid/:price', (req, res) => {
       console.log(err);
       response["success"] = "false";
       response["error"] = "Internal buy request server error!";
-      res.json(response);
+      res.json(response); 
     }
   })
 })

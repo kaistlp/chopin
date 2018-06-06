@@ -64,6 +64,12 @@ router.get('/product_info',function(req,res){
 	res.render('product_info.html');
 });
 router.get('/mypage',function(req,res){
+	var sess = req.session;
+	if(sess.username === undefined){
+		console.log("login needed before upload");
+		res.redirect('/signin');
+		return;
+	}
 	res.render('mypage.html');
 });
 
