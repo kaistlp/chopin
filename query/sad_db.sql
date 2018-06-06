@@ -53,14 +53,17 @@ insert into Users (uname, pw, phone_num) values('qwe', 'asd', '012-3456-7890');
 insert into Users (uname, pw, phone_num) values('kim', 'jae', '010-3090-3502');
 insert into Users (uname, pw, phone_num) values('lee', 'lee', '010-2222-2222');
 
-insert into Products values(0, 1, 'car', null, 1000, 'N', '20120727150017');
+insert into Products (uid, pname, max_price, init_price, is_sold, reg_time)
+	values(1, 'car', null, 1000, 'N', '20120727150017');
 insert into Products (uid, pname, max_price, init_price, is_sold, reg_time)
 	values(1, 'book', null, 1, 'N', '20120727150018'),
 	(1, 'cpu', null, 200, 'N', '20120727150019'),
 	(2, 'bike', null, 30000, 'N', '20120727150020'),
 	(2, 'glass', 200, 100, 'N', '20170727150018');
 
+insert into Descriptions values (1, 'description', 'Old car just like a new car!!!');
 
+insert into Demands values(2, 1, 2000, null);
 
 
 

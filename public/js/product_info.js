@@ -2,11 +2,40 @@ var domain = "http://localhost:3000"
 const attributeNo = 2;
 const user_attr = 3;
 var user_num = 2;
+var sellid = -1;
+var sessid = -1;
+var pname = "";
+var descr = "";
+var success = "false";
+var error = "";
+var demands = [];
 
-setup();
+
+$.urlParam = function(name) {
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results == null) {
+        return null;
+    } else {
+        return results[1] || 0;
+    }
+}
+
 
 function setup(){
+    var pid = $.urlParam('pid');
+    var api_url = domain + "/api/product/info/" + pid;
 
+    $.ajax({
+        url: api_url,
+        cache: false,
+        async: false
+    }).done(function(data){
+        sellid = data.sellid;
+        sessid = data.sessid;
+        pname = data.pname;
+        descr = data.description;
+        demands = data.demands;
+    })
 	title();
 	user();
 	document.getElementById("send_req").onclick = function() {request()};
@@ -18,16 +47,16 @@ function title() {
             var info = document.getElementById("product_attr" +attr);
 			switch(attr){
 				case 0:
-					info.innerHTML = "Product Name"
+					info.innerHTML = pname
 					break;
 				case 1:
-					info.innerHTML = "Product Detail"
+					info.innerHTML = descr
 			}
         }
     }
 
 function user() {
-	 var item_no = 8;
+	 var item_no = demands.length;
      var table = document.getElementById("requests").getElementsByTagName('tbody')[0];
      for (var i = 0;i<item_no;i+=1){
         var row = table.insertRow(i);
@@ -36,9 +65,9 @@ function user() {
         var Price = row.insertCell(2);
         var Time = row.insertCell(3);
         No.innerHTML = i;
-        User.innerHTML = "User "+i;
-        Price.innerHTML = "Price "+i;
-        Time.innerHTML = "Time "+i;
+        User.innerHTML = demands[i].uname;
+        Price.innerHTML = demands[i].offer_price;
+        Time.innerHTML = demands[i].reg_time;
         row.setAttribute("id", i);
         row.onclick = select;
      }
@@ -68,3 +97,6 @@ function confirm() {
         alert("You select product no."+selectedList[0].getAttribute("id"));
     }
 }
+
+
+setup();
