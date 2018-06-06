@@ -64,7 +64,6 @@ function register(prod,description,initprice,price){
 	        async: false
 	    }).done(function(data) {
 	    })
-	    alert(options + " " + fieldname + " " + fieldname)
 		}
     }
     
