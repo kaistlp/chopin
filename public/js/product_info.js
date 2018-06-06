@@ -90,10 +90,11 @@ function user() {
 }
 
 function request() {
-	var price = document.getElementById("maxPriceInput").value
-	var pid = $.urlParam('pid');
-	var api_url = domain + "/api/product_info/" + sessid + "/" + pid + "/" + price;
-    $.ajax({
+    var price = document.getElementById("maxPriceInput").value
+    var pid = $.urlParam('pid');
+    var api_url = domain + "/api/product/buy"  + "/" + pid + "/" + price;
+    alert(sessid+ " " + pid + " " +price)
+    $.post({
         url: api_url,
         cache: false,
         async: false
