@@ -48,11 +48,21 @@ function setup() {
     user();
     document.getElementById("send_req").onclick = function() { request() };
     document.getElementById("confirm_req").onclick = confirm;
+    if (sessid == sellid) {
+        if (product_data[0].is_sold != 'Y') {
+            $("#div-btn-confirm").removeClass('d-none');
+        }
+    } else if (sessid !== undefined) {
+        if (product_data[0].is_sold != 'Y') {
+            $("#div-btn-buy").removeClass('d-none');
+        }
+    }
 
 }
 
 function title() {
     $("#product-title").html(pname);
+    $("#owner-name").html(product_data[0].uname);
     for (var i=0; i<product_data.length; i++) {
         if (product_data[i].name == "description") {
             $("#product-description").html(product_data[i].value);
