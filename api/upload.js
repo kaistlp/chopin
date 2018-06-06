@@ -20,12 +20,14 @@ router.get('/new/:pname/:pinitial/:pmax', (req, res) => {
     var pmax = req.params.pmax;  
     var sess = req.session;
     var uid = sess.uid;
+    var d = new Date()
+    var time = d.toUTCString()
 
     var sess = req.session;
     console.log(pname);
     var flag = 0;
     connection.query('INSERT INTO Products(uid, pname, max_price, init_price, is_sold, reg_time) VALUES ("' + 
-     sess.userid + '", "'+ pname + '", "' + pmax + '", "' + pinitial + '", "N", "201701010000");', function(err, result){
+     sess.userid + '", "'+ pname + '", "' + pmax + '", "' + pinitial + '", "N", "'+time+'");', function(err, result){
      	console.log(err)
      	if (err){
      		flag = 1

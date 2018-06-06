@@ -9,7 +9,7 @@ Create table Users(
 	uname varchar(15) not null,
  	pw varchar(15) not null,
  	phone_num varchar(14) not null,
- 	reg_time varchar(14)
+ 	reg_time varchar(50)
 );
 
 create table Products(
@@ -19,7 +19,7 @@ create table Products(
 	max_price int,
 	init_price int not null,
 	is_sold char(1),
-	reg_time varchar(14),
+	reg_time varchar(50),
 	foreign key (uid) references Users(id) on delete cascade
 );
 
@@ -27,7 +27,7 @@ create table Demands(
 	uid integer not null,
 	pid integer not null,
 	offer_price int not null,
-	reg_time varchar(14),
+	reg_time varchar(50),
 	foreign key (uid) references Users(id) on delete cascade,
 	foreign key (pid) references Products(pid) on delete cascade,
 	primary key (uid, pid)
@@ -57,13 +57,19 @@ insert into Users (uname, pw, phone_num) values('kim', 'jae', '010-3090-3502');
 insert into Users (uname, pw, phone_num) values('lee', 'lee', '010-2222-2222');
 
 insert into Products (uid, pname, max_price, init_price, is_sold, reg_time)
-	values(1, 'car', null, 1000, 'N', '20120727150017');
+	values(1, 'car', null, 1000, 'N', '	Wed, 06 Jun 2018 20:31:00 GMT
+');
 insert into Products (uid, pname, max_price, init_price, is_sold, reg_time)
-	values(1, 'book', null, 1, 'N', '20120727150018'),
-	(1, 'cpu', null, 200, 'N', '20120727150019'),
-	(2, 'bike', null, 30000, 'N', '20120727150020'),
-	(2, 'glass', 200, 100, 'N', '20170727150018'),
-	(3, 'Gold', 200, 100, 'Y', '20170727150018');
+	values(1, 'book', null, 1, 'N', '	Wed, 06 Jun 2018 20:31:12 GMT
+'),
+	(1, 'cpu', null, 200, 'N', '	Wed, 06 Jun 2018 20:31:34 GMT
+'),
+	(2, 'bike', null, 30000, 'N', '	Wed, 06 Jun 2018 20:31:56 GMT
+'),
+	(2, 'glass', 200, 100, 'N', '	Wed, 06 Jun 2018 20:31:57 GMT
+'),
+	(3, 'Gold', 200, 100, 'Y', '	Wed, 06 Jun 2018 20:31:59 GMT
+');
 
 insert into Descriptions values (1, 'description', 'Old car just like a new car!!!');
 insert into Descriptions values (2, 'description', 'So clean!!');
@@ -75,12 +81,12 @@ insert into Descriptions values (1, 'Period of Use', '10 Years');
 insert into Descriptions values (1, 'Country', 'Korea');	
 
 
-insert into Demands values(3, 1, 2000, null);
-insert into Demands values(2, 1, 3000, null);
+insert into Demands values(3, 1, 2000, 'Wed, 06 Jun 2018 20:31:59 GMT');
+insert into Demands values(2, 1, 3000, 'Wed, 06 Jun 2018 20:31:59 GMT');
 
-insert into Demands values(2, 2, 3, null);
-insert into Demands values(3, 2, 2, null);
-insert into Demands values(1, 4, 300, null);
+insert into Demands values(2, 2, 3, 'Wed, 06 Jun 2018 20:31:59 GMT');
+insert into Demands values(3, 2, 2, 'Wed, 06 Jun 2018 20:31:59 GMT');
+insert into Demands values(1, 4, 300, 'Wed, 06 Jun 2018 20:31:59 GMT');
 
 insert into Trades values(3, 1, 6, 200);
 
