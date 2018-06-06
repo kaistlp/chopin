@@ -150,7 +150,7 @@ function confirm() {
 function do_trade(uid) {
     var pid = $.urlParam('pid');
     var selectedList = document.getElementsByClassName('table-primary');
-    var price = selectedList[0].childNodes[2].innerHTML;
+    var price = selectedList[0].childNodes[3].innerHTML;
     var buyer = selectedList[0].childNodes[1].innerHTML;
     
     var api_url = domain + "/api/product/confirm/" + pid + "/" + buyer + "/" +price;

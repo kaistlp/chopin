@@ -17,6 +17,9 @@ function userinfo() {
         async: false
     }).done(function(data) {
         item_no  = data.length
+        if (item_no == 1 && data[0]["pid"] == null) {
+            item_no = 0;
+        }
         lists = data
     })
     var api_url = domain + "/api/mypage/request";
@@ -32,6 +35,7 @@ function userinfo() {
     var phone = document.getElementById("myphone")
     name.innerHTML = lists[0]["uname"];
     phone.innerHTML = lists[0]["phone_num"]
+    $("#reg_time").html(lists[0]["reg_time"]);
 
 }
 

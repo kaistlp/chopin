@@ -107,10 +107,10 @@ function show_items() {
         Name.innerHTML = lists[i]["pname"];
         Seller.innerHTML = lists[i]["uname"];
         if (lists[i]["current_price"] == null) {
-            lists[i]["current_price"] = lists[i]["init_price"];
+            lists[i]["current_price"] = '-';
         }
         Price.innerHTML = lists[i]["current_price"];
-        MaxPrice.innerHTML = lists[i]["max_price"]  == null? '-' : lists[i]["max_price"];;
+        MaxPrice.innerHTML = lists[i]["max_price"]  == null || lists[i]["max_price"] == 0? '-' : lists[i]["max_price"];;
         Sold.innerHTML = lists[i]["is_sold"];
         Time.innerHTML = lists[i]["reg_time"];
         row.id = lists[i]["pid"];
