@@ -15,7 +15,7 @@ function submit() {
 		price = 0;
 	}
 
-	register(prod,description,price,initprice,price)
+	register(prod,description,initprice,price)
 }
 
 var i = 0;
