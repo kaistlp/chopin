@@ -106,8 +106,8 @@ function show_items() {
         No.innerHTML = i + 1;
         Name.innerHTML = lists[i]["pname"];
         Seller.innerHTML = lists[i]["uname"];
-        Price.innerHTML = lists[i]["init_price"];
-        MaxPrice.innerHTML = lists[i]["max_price"];
+        Price.innerHTML = lists[i]["current_price"] == null? '-' : lists[i]["current_price"];
+        MaxPrice.innerHTML = lists[i]["max_price"]  == null? '-' : lists[i]["max_price"];;
         Sold.innerHTML = lists[i]["is_sold"];
         Time.innerHTML = lists[i]["reg_time"];
         row.id = lists[i]["pid"];
