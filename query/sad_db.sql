@@ -67,7 +67,7 @@ insert into Descriptions values (2, 'description', 'So clean!!');
 insert into Descriptions values (3, 'description', 'BitCoin!!!!!!!!');
 insert into Descriptions values (4, 'description', 'Whing Whing SSang SSang');
 insert into Descriptions values (5, 'description', '');
-	insert into Descriptions values (6, 'description', 'Very Expensive');
+insert into Descriptions values (6, 'description', 'Very Expensive');
 insert into Descriptions values (1, 'Period of Use', '10 Years');
 
 
