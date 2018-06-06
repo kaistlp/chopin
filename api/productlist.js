@@ -52,8 +52,8 @@ router.get('/info/:pid', (req, res) => {
     var response = {};
     console.log(result);
     if(result.length == 0){
-      respons["success"] = "false";
-      respons["error"] = "DB error, there aren't that product";
+      response["success"] = "false";
+      response["error"] = "DB error, there aren't that product";
       res.json(response);
       return;
     }

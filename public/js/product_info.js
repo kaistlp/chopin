@@ -30,6 +30,12 @@ function setup(){
         cache: false,
         async: false
     }).done(function(data){
+        if(data.success == "false"){
+            alert(data.error);
+            window.location.href = "http://localhost:3000/product"
+            return;
+        }
+
         sellid = data.sellid;
         sessid = data.sessid;
         pname = data.pname;
