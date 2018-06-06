@@ -16,14 +16,16 @@ router.get('/', (req, res) => {
 	var response = {}
 	var sess = req.session;
 	if (!(sess.username===undefined)){
-		connection.query('select * from Products AS t1 INNER JOIN Users AS t2 ON t1.uid=t2.id  where uname="'+sess.username+'";', function(err, result){
+		connection.query('select * from Products AS t1 Right JOIN Users AS t2 ON t1.uid=t2.id  where uname="'+sess.username+'";', function(err, result){
         if(err){
             console.log("listing error : " + err);
             res.json(response)
             return
         }
-    	//console.log(result);
-    	res.json(result)
+    	console.log(result);
+
+    	console.log(sess.username);
+      res.json(result)
     	return
 	})
 
