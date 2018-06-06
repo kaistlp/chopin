@@ -25,6 +25,7 @@ app.use(express.static('public'));
 app.use('/', require('./router/main'))
 app.use('/api/user/', require('./api/user'))
 app.use('/api/product/', require('./api/productlist'))
+app.use('/api/mypage/', require('./api/mypage'))
 
 
 app.engine('html', require('ejs').renderFile);
