@@ -68,6 +68,7 @@ function title() {
     $("#product-title").html(pname);
     $("#owner-name").html(product_data[0].uname);
     $("#owner-phone-num").html(product_data[0].phone_num);
+    $("#desc-init-price").html('₩'+product_data[0].init_price);
     for (var i=0; i<product_data.length; i++) {
         if (product_data[i].name == "description") {
             $("#product-description").html(product_data[i].value);
@@ -149,7 +150,7 @@ function confirm() {
 function do_trade(uid) {
     var pid = $.urlParam('pid');
     var selectedList = document.getElementsByClassName('table-primary');
-    var price = selectedList[0].childNodes[3].innerHTML;
+    var price = selectedList[0].childNodes[2].innerHTML;
     var buyer = selectedList[0].childNodes[1].innerHTML;
     
     var api_url = domain + "/api/product/confirm/" + pid + "/" + buyer + "/" +price;

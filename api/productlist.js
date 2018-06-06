@@ -46,7 +46,7 @@ router.get('/info/:pid', (req, res) => {
   var pid = req.params.pid;
   var sess = req.session;
   console.log('find product info');
-  var sql_query = ' select Products.pname, Products.uid, Users.uname, Users.phone_num, Products.is_sold, Descriptions.name, Descriptions.value from Descriptions'
+  var sql_query = ' select Products.pname, Products.uid, Users.uname, Users.phone_num, Products.is_sold, Products.init_price, Descriptions.name, Descriptions.value from Descriptions'
   + ' inner join Products on Products.pid = Descriptions.pid'
   + ' inner join Users on Products.uid = Users.id'
   + ' where Products.pid = ' + pid +';';
