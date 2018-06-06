@@ -16,15 +16,13 @@
       <div class="main">
         <h1>Simple Auction Database System</h1>
         <p class="lead">Welcome to SAD system.<br>We provide you a free auction market.<br><b>Let's Deal</b></p>
+        <% if(name){ %>
+        <img src="./img/sad.png"/ style="width:300px">
+        <% } else { %>
         <img src="./img/happy.png"/ style="width:300px">
+        <% } %>
       </div>
 
     </main>
-	<% include ./footer %>
-  <% if(name){ %>
-    <h2>Success! </h2>
-  <% } else { %>
-    <h2>Login need! </h2>
-  <% } %>
   </body>
 </html>

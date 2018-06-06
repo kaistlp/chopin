@@ -100,7 +100,6 @@ function show_items() {
         var Seller = row.insertCell(2);
         var Buyer = row.insertCell(3);
         var FinalPrice = row.insertCell(4);
-        var Time = row.insertCell(5);
         console.log(lists[i]);
         No.innerHTML = i + 1;
         Name.innerHTML = lists[i]["pname"];
