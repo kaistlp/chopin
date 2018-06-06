@@ -15,46 +15,48 @@
     <div class="product-metadata">
       <h1 class="title text-capitalize" id="product-title">Laptop</h1>
       <p class="description" id="product-description">Laptop is very good.</p>
+      <p class="extra-info mb-1">
+        <span class="font-weight-bold">Owner</span>:
+        <span id="owner-name"></span>
+      </p>
       <p class="extra-info mb-1 d-none" id="extra-info">
         <span class="font-weight-bold" id="extra-info-name">Name</span>:
         <span id="extra-info-value">Value</span>
       </p>
     </div>
     <label>User requests for this product</label>
-    <div class="bd-request">
-      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#requestModal">Buy Request</button>
 
-      <!-- Buy Request Modal -->
-      <div class="modal fade" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="requestModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="requestModalLabel">Buy Request</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-group">
-                  <label for="priceInput">Price</label>
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="won">₩</span>
-                    </div>
-                    <input type="number" value="10000" min="0" class="form-control"step="10000" id="maxPriceInput" aria-describedby="won">
+    <!-- Buy Request Modal -->
+    <div class="modal fade" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="requestModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="requestModalLabel">Buy Request</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="priceInput">Price</label>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="won">₩</span>
                   </div>
-                </div>  
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" id="send_req">Send Request</button>
-            </div>
+                  <input type="number" value="10000" min="0" class="form-control"step="10000" id="maxPriceInput" aria-describedby="won">
+                </div>
+              </div>  
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="send_req">Send Request</button>
           </div>
         </div>
       </div>
     </div>
+    
     <table id="requests" class="table table-hover">
       <thead>
         <tr>
@@ -67,7 +69,10 @@
       <tbody>
       </tbody>
     </table>
-    <div class="bd-choose">
+    <div class="bd-request d-none" id="div-btn-buy">
+      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#requestModal">Buy Request</button>
+    </div>
+    <div class="bd-choose d-none" id="div-btn-confirm">
       <button type="button" class="btn btn-success" id="confirm_req" data->Confirm Request</button>
     </div>
 
