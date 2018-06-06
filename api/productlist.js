@@ -63,7 +63,7 @@ router.get('/info/:pid', (req, res) => {
     // response["description"] = result[0].value;
     response["success"] = "true";
     response["error"] = "";
-    connection.query('select Users.uname, Demands.offer_price, Demands.reg_time from Demands inner join Users on Users.id = Demands.uid where Demands.pid = ' + pid + ' order by Demands.offer_price desc;', function(err, tables){
+    connection.query('select Demands.uid, Users.uname, Demands.offer_price, Demands.reg_time from Demands inner join Users on Users.id = Demands.uid where Demands.pid = ' + pid + ' order by Demands.offer_price desc;', function(err, tables){
       console.log(tables);
       response["demands"] = tables;
       res.json(response);
